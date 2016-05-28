@@ -3,16 +3,20 @@
     "homepage": "https://github.com/khrome/sterling",
     "version": "0.0.2-alpha",
     "main": "sterling.js",
-    "description": "",
+    "description": "From modules to applications",
     "keywords": [
-        "credit cards",
-        "card swipe",
-        "track data"
+        "browser",
+        "npm",
+        "modules",
+        "UMD",
+        "server",
+        "gulp",
+        "grunt"
     ],
     "author": "Abbey Hawk Sparrow <@khrome> (http://patternweaver.com)",
     "contributors": [],
     "bugs": {
-        "url": "https://github.com/khrome/card-swipe/issues"
+        "url": "https://github.com/khrome/sterling/issues"
     },
     "license": "MIT",
     "repository": {
