@@ -1,0 +1,37 @@
+{
+    "name": "sterling",
+    "homepage": "https://github.com/khrome/sterling",
+    "version": "0.0.2-alpha",
+    "main": "sterling.js",
+    "description": "",
+    "keywords": [
+        "credit cards",
+        "card swipe",
+        "track data"
+    ],
+    "author": "Abbey Hawk Sparrow <@khrome> (http://patternweaver.com)",
+    "contributors": [],
+    "bugs": {
+        "url": "https://github.com/khrome/card-swipe/issues"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/khrome/sterling.git"
+    },
+    "dependencies": {
+        "async-objects": "*",
+        "async-arrays": "*",
+        "extended-emitter": "*",
+        "mime-types": "*"
+    },
+    "devDependencies": {
+        "mocha": "*",
+        "should": "*"
+    },
+    "optionalDependencies": {
+    },
+    "engines": {
+        "node": "*"
+    }
+}
