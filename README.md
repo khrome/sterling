@@ -25,6 +25,7 @@ next make a file for your html root (`index.html`):
 	
 Last you'll need a server (`server.js`)
 
+		var Sterling = require('sterling');
 		var app = new Sterling({
 		    routes : { //director routes format
 		        '/my/route/with/:value' : {get:function(value){
@@ -35,5 +36,6 @@ Last you'll need a server (`server.js`)
 		        'module-name' : 'var moduleVariableName'
 		    },
 		});
+		app.serve(<port#>);
 	
 now, you just work in app.js and as you reload app.js changes will be recompiled. You'll need to restart the server to see changes to your server.js. Go nuts.
