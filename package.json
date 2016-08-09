@@ -1,17 +1,17 @@
 {
     "name": "sterling",
     "homepage": "https://github.com/khrome/sterling",
-    "version": "0.0.2-alpha",
+    "version": "0.1.0",
     "main": "sterling.js",
-    "description": "From modules to applications",
+    "description": "Buildless web layer for using NPMs in client and server",
     "keywords": [
         "browser",
         "npm",
         "modules",
         "UMD",
         "server",
-        "gulp",
-        "grunt"
+        "webpack",
+        "buildless"
     ],
     "author": "Abbey Hawk Sparrow <@khrome> (http://patternweaver.com)",
     "contributors": [],
@@ -27,7 +27,9 @@
         "async-objects": "*",
         "async-arrays": "*",
         "extended-emitter": "*",
-        "mime-types": "*"
+        "whammo": "*",
+        "webpack": "*",
+        "director": "*"
     },
     "devDependencies": {
         "mocha": "*",

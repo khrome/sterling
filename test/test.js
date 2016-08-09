@@ -1,9 +1,25 @@
 var should = require("should");
+var Sterling = require("../sterling");
+var registry;
 
-describe('Sterling', function(){
+/*describe('Sterling', function(){
     
-    it('can detect a card swipe', function(done){
+    describe('can combine a simple union of libraries', function(done){
+        before(function(){
+            console.log('A');
+            registry = new Sterling();
+            registry.addModule('async');
+            registry.addModule('jquery');
+        });
         
+        it('combines js files', function(){
+            console.log('B');
+            registry.output({
+                exporter : 'umd-requirejs'
+            }, function(err, results){
+                console.log('!!', arguments);
+            })
+        })
     });
     
-});
+});*/

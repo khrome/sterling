@@ -3,27 +3,23 @@ Worker.prototype.isWorking = function(){
     return !!this.jobs;
 }
 
-Worker.prototype.complete = function(job){
+Worker.prototype.complete = function(job, oneTime){
     var pos = this.jobs.indexOf(job);
-    if(pos === -1){
-        var jobs = this.jobs;
-        this.jobs=undefined;
-        jobs.forEach(function(){ job() });
-        this.jobs=[];
-    }
+    if(pos === -1)throw new Error('ACK!');
     ob.jobs.splice(pos, 1);
-    if(ob.jobs.length === 0) ob.jobs = undefined;
+    if(ob.jobs.length === 0){
+        if(oneTime) this.jobs = [];
+        else this.jobs = undefined;
+    }
 }
 
 Worker.prototype.work = function(job){
+    if(!job) this.jobs = [];
     var ob = this;
+    var finish = function(oneTime){ ob.complete(job, oneTime) };
     if(this.jobs) return this.jobs.push(job);
-    if(job.arguments.length == 1){
-           job(function(){
-               ob.complete(job);
-           });
-    }else job();
-    return function(){ ob.complete(job) };
+    else return job(function(){});
+    return finish;
 }
 
 Worker.implement = function(classDef){
