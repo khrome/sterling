@@ -14,6 +14,10 @@ var Sterling = function(options){
     this.application = new Server();
     this.options = options || {};
     if(!this.options.routes) this.options.routes = {};
+    if(!this.options.types) this.options.types = [
+        'png', 'gif', 'jpg', 'jpeg', 'json', 'js', 'html', 'css',
+        'ttf', 'eot', 'woff', 'ico', 'otf', 'svg', 'handlebars'
+    ];
     if(this.options.externals && Array.isArray(this.options.externals)){
         var externs = {};
         this.options.externals.forEach(function(name){
@@ -38,7 +42,7 @@ var Sterling = function(options){
                             },
                             externals: externs
                         }, function(err, results){
-                            if(err) console.log(results.toJson("verbose"));
+                            if(err) console.log(err, results.toJson("verbose"));
                             if(!err){
                                 fs.readFile(file, function(fileErr, body){
                                     fs.readFile(scratch+'/'+bundleName, function(fileErr, depsBody){
@@ -64,7 +68,7 @@ var Sterling = function(options){
     if(this.options.all){
         this.router.configure({on:this.options.all});
     }
-    directorAdapter.routeHTTP(this.application, this.router);
+    directorAdapter.routeHTTP(this.application, this.router, this.options);
     if(this.options.port) this.application.listen(this.options.port);
 };
 
