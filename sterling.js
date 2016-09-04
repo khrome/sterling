@@ -16,7 +16,7 @@ var Sterling = function(options){
     if(!this.options.routes) this.options.routes = {};
     if(!this.options.types) this.options.types = [
         'png', 'gif', 'jpg', 'jpeg', 'json', 'js', 'html', 'css',
-        'ttf', 'eot', 'woff', 'ico', 'otf', 'svg', 'handlebars'
+        'ttf', 'eot', 'woff', 'ico', 'otf', 'svg', 'handlebars', 'woff2'
     ];
     if(this.options.externals && Array.isArray(this.options.externals)){
         var externs = {};

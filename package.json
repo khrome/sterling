@@ -1,7 +1,7 @@
 {
     "name": "sterling",
     "homepage": "https://github.com/khrome/sterling",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "main": "sterling.js",
     "description": "Buildless web layer for using NPMs in client and server",
     "keywords": [
