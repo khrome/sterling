@@ -11,7 +11,7 @@ var scratch = './bin';
 
 var Sterling = function(options){
     var ob = this;
-    this.application = new Server();
+    this.application = (options.express?require('micro-serve').express(options.express)(this):new Server());
     this.options = options || {};
     if(!this.options.routes) this.options.routes = {};
     if(!this.options.types) this.options.types = [

@@ -1,7 +1,7 @@
 {
     "name": "sterling",
     "homepage": "https://github.com/khrome/sterling",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "main": "sterling.js",
     "description": "Buildless web layer for using NPMs in client and server",
     "keywords": [
@@ -11,6 +11,7 @@
         "UMD",
         "server",
         "webpack",
+        "express",
         "buildless"
     ],
     "author": "Abbey Hawk Sparrow <@khrome> (http://patternweaver.com)",
