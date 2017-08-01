@@ -59,10 +59,10 @@ var Sterling = function(options){
             case 'js':
                 fs.readFile(appRoot+file)
                 break;
-            default : 
+            default :
                 this.res.end('Unsupported type: '+type);
         }
-        
+
     }};
     this.router = new director.http.Router(this.options.routes);
     if(this.options.all){
@@ -70,6 +70,7 @@ var Sterling = function(options){
     }
     directorAdapter.routeHTTP(this.application, this.router, this.options);
     if(this.options.port) this.application.listen(this.options.port);
+    this.router.addRoute = this.router.on;
 };
 
 Sterling.prototype.setup = function(options, cb){
