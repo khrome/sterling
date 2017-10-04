@@ -86,8 +86,36 @@ Sterling.prototype.setup = function(options, cb){
     }
 }
 
+Sterling.prototype.standardResponse = function(res){
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Range');
+    res.setHeader(
+        'Access-Control-Expose-Headers',
+        'Accept-Ranges, Content-Encoding, Content-Length, Content-Range'
+    );
+};
+
+Sterling.prototype.error = function(res, err, code){
+    var message = err.message || (err+'');
+    this.standardResponse(res);
+    if(code) res.statusCode = code; //possible this won't be sent if headers are already good
+    res.end(JSON.stringify({
+        message : message
+    }));
+};
+
 Sterling.prototype.addRoute = function(route, handler){
-    this.router.addRoute(route, handler);
+    var ob = this;
+    if(typeof handler == 'function'){
+        this.router.get(route, handler);
+    }else{
+        Object.keys(handler).forEach(function(method){
+            var lowerMethod = method.toLowerCase();
+            if(ob.router[lowerMethod]){
+                ob.router[lowerMethod](route, handler[lowerMethod]);
+            }
+        });
+    }
 }
 
 Sterling.prototype.serve = function(port){
