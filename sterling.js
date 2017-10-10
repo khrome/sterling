@@ -104,10 +104,10 @@ Sterling.prototype.error = function(res, err, code){
     }));
 };
 
-Sterling.prototype.addRoute = function(route, handler){
+Sterling.prototype.addRoute = function(route, handler, method){
     var ob = this;
     if(typeof handler == 'function'){
-        this.router.get(route, handler);
+        this.router[(method || 'get').toLowerCase()](route, handler);
     }else{
         Object.keys(handler).forEach(function(method){
             var lowerMethod = method.toLowerCase();
