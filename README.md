@@ -1,11 +1,16 @@
 Sterling
 ========
 
-Buildless Development : standalone or inside [express]()
+Buildless Development : standalone or inside [express](https://www.npmjs.com/package/express)
 
-Sterling is a simple wrapper for dynamic assembly and serving of components via [webpack](https://www.npmjs.com/package/webpack), [director](https://www.npmjs.com/package/director) and [whammo](https://www.npmjs.com/package/whammo) without configuration or build process. Your strategy could be much more sophisticated, involve frameworks or tarot cards... this framework will never have an opinion on that (but if it's not compatible with your favorite poison, please let me know!). Here's an ulta barebones version:
+Sterling is a simple wrapper for dynamic assembly and serving of components via [webpack](https://www.npmjs.com/package/webpack), [director](https://www.npmjs.com/package/director) and [whammo](https://www.npmjs.com/package/whammo) without configuration or build process. Your strategy could be much more sophisticated, involve frameworks or incantations... this framework will never have an opinion on that (but if it's not compatible with your favorite poison, please let me know!).
 
-make a file (we'll call it `app.js`) for your client js root: 
+Setup
+-----
+
+Here's an ulta barebones version:
+
+make a file (we'll call it `app.js`) for your client js root:
 
 		// use require() like crazy...
 		// as long as it is installed and compatible with webpack
@@ -13,7 +18,7 @@ make a file (we'll call it `app.js`) for your client js root:
 		window.globalSetup = function(){
 			//do things with the DOM while continuing to abuse require()
 		};
-	
+
 next make a file for your html root (`index.html`):
 
 		<html>
@@ -24,7 +29,7 @@ next make a file for your html root (`index.html`):
 		        <!-- A page full of awesome -->
 		    </body>
 		</html>
-	
+
 Last you'll need a server (`server.js`)
 
 		var Sterling = require('sterling');
@@ -38,12 +43,21 @@ Last you'll need a server (`server.js`)
 		        'module-name' : 'var moduleVariableName'
 		    },
 		});
-		app.serve(<port#>);
-		
+		modules.export = app;
+
 Additional options on the Server object are:
 
 - **express** : an instance of express you'd like Sterling to run as middleware inside of
 - **types** : an `Array` of legal filetypes for transfer (anything not matching these will 404, even if existant).
 - **autoParseBody** : have the framework automatically pull the POST content and also attempt to parse it, both as JSON, then as querystring arguments. By default only the GET parameters on the url are parsed.
-	
+
+Loader
+------
+
+in addition to manually triggering `app.serve(<port>)` or creating a runner script(like the built in [runner]()) you can use the sterling binary (if you installed it globally) to run it.
+
+		sterling -c my/config/file.json
+
+In addition, there is a soon to be documented loader interface that allows you to customize commandline options and load config in convenient places (like test harnesses).
+
 now, you just work in app.js and as you reload app.js changes will be recompiled. You'll need to restart the server to see changes to your server.js. Go nuts.
