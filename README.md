@@ -1,9 +1,11 @@
 Sterling
 ========
 
-Buildless Development : standalone or inside [express](https://www.npmjs.com/package/express)
+Now deprecated, [whammo](https://www.npmjs.com/package/whammo) is now simple enough it doesn't need a wrapper. This module is now deprecated and frozen in time.
 
-Sterling is a simple wrapper for dynamic assembly and serving of components via [webpack](https://www.npmjs.com/package/webpack), [director](https://www.npmjs.com/package/director) and [whammo](https://www.npmjs.com/package/whammo) without configuration or build process. Your strategy could be much more sophisticated, involve frameworks or incantations... this framework will never have an opinion on that (but if it's not compatible with your favorite poison, please let me know!).
+Buildless Development : standalone or inside [express](https://www.npmjs.com/package/express) via [micro-serve](https://github.com/khrome/micro-serve/tree/85da53f43a2741b9cf89c5af47b84968e388b457)
+
+Sterling is a simple wrapper for dynamic assembly and serving of components via [webpack](https://www.npmjs.com/package/webpack), [director](https://www.npmjs.com/package/director) and [whammo](https://github.com/khrome/whammo/tree/f4722604e2649f11ae125915832cc80c9addb872) without configuration or build process. Your strategy could be much more sophisticated, involve frameworks or incantations... this framework will never have an opinion on that (but if it's not compatible with your favorite poison, please let me know!).
 
 Setup
 -----
